@@ -1,8 +1,10 @@
 const http = require('http');
-
+const fs = require('fs');
 
 const server =  http.createServer((req, res) => {
     const url = req.url;
+    const method = req.method;
+
     if(url === '/'){
         res.setHeader('Content-Type', 'text/html');
         res.write('<html>');
@@ -12,6 +14,16 @@ const server =  http.createServer((req, res) => {
         return res.end();
     }
 
+    // Redirecting user
+    if(url === '/message' && method === 'POST'){
+        // Save user's input
+        fs.writeFileSync('message.txt', 'Dummy');
+
+        // Redirecting user
+        res.statusCode = 302;
+        res.setHeader('location', '/');
+        return res.end();
+    }
     res.setHeader('Content-Type', 'text/html');
     res.write('<html>');
     res.write('<head><title>Response Text</title></head>');
