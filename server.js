@@ -14,6 +14,16 @@ const server =  http.createServer((req, res) => {
         return res.end();
     }
 
+    // List of created users
+    if(url === '/users'){
+        res.setHeader('Content-Type', 'text/html');
+        res.write('<html>');
+        res.write('<head><title>Users List</title></head>');
+        res.write('<body><ul><li>User1</li></ul></body>');
+        res.write('</html>');
+        return res.end();
+    }
+
     // Redirecting user
     if(url === '/message' && method === 'POST'){
         // Save user's input
