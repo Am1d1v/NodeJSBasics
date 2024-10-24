@@ -1,0 +1,22 @@
+{
+  "name": "basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "routes.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Am1d1v/NodeJSBasics.git"
+  },
+  "author": "Dima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Am1d1v/NodeJSBasics/issues"
+  },
+  "homepage": "https://github.com/Am1d1v/NodeJSBasics#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
