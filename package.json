@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Am1d1v/NodeJSBasics#readme",
   "devDependencies": {
     "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
   }
 }
