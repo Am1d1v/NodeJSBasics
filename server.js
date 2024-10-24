@@ -35,19 +35,21 @@ const server =  http.createServer((req, res) => {
             body.push(chunk);
         });
 
-        req.on('end', () => {
+        return req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
             const message = parsedBody.split("=")[1];
             console.log(message);
 
             // Save user's input
-            fs.writeFileSync('message.txt', message);
-        });
+            fs.writeFile('message.txt', message, (err) => {
+                // Redirecting user
+                res.statusCode = 302;
+                res.setHeader('location', '/');
+                return res.end();
+            });
 
-        // Redirecting user
-        res.statusCode = 302;
-        res.setHeader('location', '/');
-        return res.end();
+        });
+ 
     }
     res.setHeader('Content-Type', 'text/html');
     res.write('<html>');
