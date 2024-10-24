@@ -26,8 +26,23 @@ const server =  http.createServer((req, res) => {
 
     // Redirecting user
     if(url === '/message' && method === 'POST'){
-        // Save user's input
-        fs.writeFileSync('message.txt', 'Dummy');
+
+        const body = [];
+
+        // 
+        req.on('data', (chunk) => {
+            console.log(chunk);
+            body.push(chunk);
+        });
+
+        req.on('end', () => {
+            const parsedBody = Buffer.concat(body).toString();
+            const message = parsedBody.split("=")[1];
+            console.log(message);
+
+            // Save user's input
+            fs.writeFileSync('message.txt', message);
+        });
 
         // Redirecting user
         res.statusCode = 302;
