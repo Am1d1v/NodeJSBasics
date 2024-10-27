@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, './', 'public')));
 
 // Add product page
-app.use('/admin', adminRoutes);
+app.use('/admin', adminRoutes.routes);
 
 // Home page
 app.use(shopRoutes);
