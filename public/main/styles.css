@@ -35,4 +35,14 @@ body {
 
 main {
   padding: 1rem;
+}
+
+.form-control label, input {
+  display: block;
+}
+
+.form-control input {
+  border: 1px solid #000;
+  border-radius: 3px;
+  margin-bottom: 5px;
 }/*# sourceMappingURL=styles.css.map */
