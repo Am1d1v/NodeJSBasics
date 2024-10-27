@@ -7,9 +7,13 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 
+
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
+
+// Path to styles folder
+app.use(express.static(path.join(__dirname, './', 'public')));
 
 // Add product page
 app.use('/admin', adminRoutes);
