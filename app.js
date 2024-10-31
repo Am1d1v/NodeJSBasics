@@ -6,9 +6,10 @@ const path = require('path');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
-
-
 const app = express();
+
+app.set('view engine', 'pug');
+app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -16,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, './', 'public')));
 
 // Add product page
-app.use('/admin', adminRoutes.routes);
+app.use('/admin', adminRoutes.router);
 
 // Home page
 app.use(shopRoutes);
