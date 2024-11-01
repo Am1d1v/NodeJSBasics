@@ -16,14 +16,18 @@ html(lang="en")
                     li.main-header__item
                         a(href="/admin/add-product") Add Product 
         main 
-            .grid
-                article.card.product-item
-                    header.card__header
-                      h1.product__title Book
-                    div.card__image
-                      img(src="https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg", alt="A Book")
-                    div.card__content
-                      h2.product__price $19.99
-                      p.product__description Just a book
-                    div.card__actions
-                      button.btn Add to Cart                  
+            if products.length > 0
+                .grid
+                    each product in products
+                        article.card.product-item
+                            header.card__header
+                              h1.product__title #{product.title}
+                            div.card__image
+                              img(src="https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg", alt="A Book")
+                            div.card__content
+                              h2.product__price $19.99
+                              p.product__description Just a book
+                            div.card__actions
+                              button.btn Add to Cart
+            else 
+                h1 No Products                                    
