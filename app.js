@@ -28,7 +28,7 @@ app.use(shopRoutes);
 // Handle 404 Error Page
 app.use((req, res) => {
     //res.sendFile(path.join(__dirname, './', 'views', '404.html'));
-    res.render('404')
+    res.status(404).render('404', {pageTitle: "Error 404"})
 });
 
 app.listen(3000);
